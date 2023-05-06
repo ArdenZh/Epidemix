@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		FCC63A522A05326700F175EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A512A05326700F175EB /* AppDelegate.swift */; };
-		FCC63A542A05326700F175EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A532A05326700F175EB /* SceneDelegate.swift */; };
-		FCC63A562A05326700F175EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A552A05326700F175EB /* ViewController.swift */; };
-		FCC63A592A05326700F175EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC63A572A05326700F175EB /* Main.storyboard */; };
+		FCC63A562A05326700F175EB /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A552A05326700F175EB /* SimulationViewController.swift */; };
 		FCC63A5B2A05326900F175EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC63A5A2A05326900F175EB /* Assets.xcassets */; };
 		FCC63A5E2A05326900F175EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC63A5C2A05326900F175EB /* LaunchScreen.storyboard */; };
+		FCC63A662A0538FF00F175EB /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A652A0538FF00F175EB /* CollectionCell.swift */; };
+		FCC63A692A06479A00F175EB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A682A06479A00F175EB /* Coordinator.swift */; };
+		FCC63A6B2A0647B200F175EB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A6A2A0647B200F175EB /* AppCoordinator.swift */; };
+		FCC63A6D2A06486C00F175EB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A6C2A06486C00F175EB /* SettingsViewController.swift */; };
+		FCC63A702A06599B00F175EB /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A6F2A06599B00F175EB /* SettingsAssembly.swift */; };
+		FCC63A722A0659A600F175EB /* SimulationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A712A0659A600F175EB /* SimulationAssembly.swift */; };
+		FCC63A762A06619900F175EB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A752A06619900F175EB /* SettingsModel.swift */; };
+		FCC63A792A0663F100F175EB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A782A0663F100F175EB /* SettingsViewModel.swift */; };
+		FCC63A7B2A06640B00F175EB /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A7A2A06640B00F175EB /* SettingsViewModelProtocol.swift */; };
+		FCC63A7D2A0667A800F175EB /* SettingsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A7C2A0667A800F175EB /* SettingsNavigator.swift */; };
+		FCC63A7F2A06829800F175EB /* SettingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC63A7E2A06829800F175EB /* SettingStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FCC63A4E2A05326700F175EB /* Epidemix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Epidemix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC63A512A05326700F175EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCC63A532A05326700F175EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCC63A552A05326700F175EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCC63A582A05326700F175EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCC63A552A05326700F175EB /* SimulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		FCC63A5A2A05326900F175EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCC63A5D2A05326900F175EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCC63A5F2A05326900F175EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC63A652A0538FF00F175EB /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		FCC63A682A06479A00F175EB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FCC63A6A2A0647B200F175EB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FCC63A6C2A06486C00F175EB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FCC63A6F2A06599B00F175EB /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
+		FCC63A712A0659A600F175EB /* SimulationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationAssembly.swift; sourceTree = "<group>"; };
+		FCC63A752A06619900F175EB /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		FCC63A782A0663F100F175EB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		FCC63A7A2A06640B00F175EB /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		FCC63A7C2A0667A800F175EB /* SettingsNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigator.swift; sourceTree = "<group>"; };
+		FCC63A7E2A06829800F175EB /* SettingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +75,71 @@
 			isa = PBXGroup;
 			children = (
 				FCC63A512A05326700F175EB /* AppDelegate.swift */,
-				FCC63A532A05326700F175EB /* SceneDelegate.swift */,
-				FCC63A552A05326700F175EB /* ViewController.swift */,
-				FCC63A572A05326700F175EB /* Main.storyboard */,
+				FCC63A6E2A06597500F175EB /* Assembly */,
+				FCC63A672A06478600F175EB /* Coordinators */,
+				FCC63A772A0663D100F175EB /* Settings */,
+				FCC63A822A0698AE00F175EB /* Simulation */,
+				FCC63A752A06619900F175EB /* SettingsModel.swift */,
 				FCC63A5A2A05326900F175EB /* Assets.xcassets */,
 				FCC63A5C2A05326900F175EB /* LaunchScreen.storyboard */,
 				FCC63A5F2A05326900F175EB /* Info.plist */,
 			);
 			path = Epidemix;
+			sourceTree = "<group>";
+		};
+		FCC63A672A06478600F175EB /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A682A06479A00F175EB /* Coordinator.swift */,
+				FCC63A6A2A0647B200F175EB /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		FCC63A6E2A06597500F175EB /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A6F2A06599B00F175EB /* SettingsAssembly.swift */,
+				FCC63A712A0659A600F175EB /* SimulationAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FCC63A772A0663D100F175EB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A7C2A0667A800F175EB /* SettingsNavigator.swift */,
+				FCC63A812A06978A00F175EB /* ViewModel */,
+				FCC63A802A06978400F175EB /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FCC63A802A06978400F175EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A6C2A06486C00F175EB /* SettingsViewController.swift */,
+				FCC63A7E2A06829800F175EB /* SettingStackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCC63A812A06978A00F175EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A7A2A06640B00F175EB /* SettingsViewModelProtocol.swift */,
+				FCC63A782A0663F100F175EB /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FCC63A822A0698AE00F175EB /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				FCC63A552A05326700F175EB /* SimulationViewController.swift */,
+				FCC63A652A0538FF00F175EB /* CollectionCell.swift */,
+			);
+			path = Simulation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +202,6 @@
 			files = (
 				FCC63A5E2A05326900F175EB /* LaunchScreen.storyboard in Resources */,
 				FCC63A5B2A05326900F175EB /* Assets.xcassets in Resources */,
-				FCC63A592A05326700F175EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +212,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCC63A562A05326700F175EB /* ViewController.swift in Sources */,
+				FCC63A722A0659A600F175EB /* SimulationAssembly.swift in Sources */,
+				FCC63A692A06479A00F175EB /* Coordinator.swift in Sources */,
+				FCC63A7D2A0667A800F175EB /* SettingsNavigator.swift in Sources */,
+				FCC63A562A05326700F175EB /* SimulationViewController.swift in Sources */,
+				FCC63A6B2A0647B200F175EB /* AppCoordinator.swift in Sources */,
+				FCC63A702A06599B00F175EB /* SettingsAssembly.swift in Sources */,
+				FCC63A792A0663F100F175EB /* SettingsViewModel.swift in Sources */,
 				FCC63A522A05326700F175EB /* AppDelegate.swift in Sources */,
-				FCC63A542A05326700F175EB /* SceneDelegate.swift in Sources */,
+				FCC63A662A0538FF00F175EB /* CollectionCell.swift in Sources */,
+				FCC63A762A06619900F175EB /* SettingsModel.swift in Sources */,
+				FCC63A7B2A06640B00F175EB /* SettingsViewModelProtocol.swift in Sources */,
+				FCC63A6D2A06486C00F175EB /* SettingsViewController.swift in Sources */,
+				FCC63A7F2A06829800F175EB /* SettingStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FCC63A572A05326700F175EB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCC63A582A05326700F175EB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FCC63A5C2A05326900F175EB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +368,9 @@
 				INFOPLIST_FILE = Epidemix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +378,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhakhinarden.Epidemix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +399,9 @@
 				INFOPLIST_FILE = Epidemix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +409,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhakhinarden.Epidemix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
