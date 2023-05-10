@@ -9,6 +9,7 @@ import UIKit
 
 final class SettingsAssembly {
     
+    //Собираем модуль с настройками
     func makeSettingsModule(navigator: SettingsNavigator) -> UIViewController {
         let viewModel = SettingsViewModel(navigator: navigator)
         let settingsViewController = SettingsViewController(viewModel: viewModel)

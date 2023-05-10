@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 private enum Constants {
     static let logoImageName: String = "logo"
@@ -27,8 +28,17 @@ private enum Constants {
 }
 
 final class SettingsViewController: UIViewController {
+    
+    //MARK: - Properties
 
     private let viewModel: SettingsViewModelProtocol
+    private var cancellables: [AnyCancellable] = []
+    private let peopleNumber = PassthroughSubject<Int, Never>()
+    private let infectionsNumber = PassthroughSubject<Int, Never>()
+    private let infectionPeriod = PassthroughSubject<Int, Never>()
+    private let startSimulation = PassthroughSubject<Void, Never>()
+    
+    //MARK: - Init
     
     init(viewModel: SettingsViewModelProtocol) {
         self.viewModel = viewModel
@@ -39,10 +49,25 @@ final class SettingsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bind(to: viewModel)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    //MARK: - SetupUI
     
     private lazy var logoImageView: UIImageView = {
         let logoImage = UIImage(named: Constants.logoImageName)
@@ -110,6 +135,15 @@ final class SettingsViewController: UIViewController {
         return periodStackView
     }()
     
+    private lazy var settingsStackView: UIStackView = {
+        let settingsStackView = UIStackView(arrangedSubviews: [peopleStackView, infectionsStackView, periodStackView])
+        settingsStackView.axis = .vertical
+        settingsStackView.spacing = 32
+        settingsStackView.translatesAutoresizingMaskIntoConstraints = false
+        settingsStackView.distribution = .equalSpacing
+        return settingsStackView
+    }()
+    
     private lazy var startButton: UIButton = {
         let startButton = UIButton()
         startButton.translatesAutoresizingMaskIntoConstraints = false
@@ -129,9 +163,7 @@ final class SettingsViewController: UIViewController {
     private func addViews() {
         view.addSubview(logoStackView)
         view.addSubview(settingsView)
-        settingsView.addSubview(peopleStackView)
-        settingsView.addSubview(infectionsStackView)
-        settingsView.addSubview(periodStackView)
+        settingsView.addSubview(settingsStackView)
         view.addSubview(startButton)
         constraintViews()
     }
@@ -145,47 +177,58 @@ final class SettingsViewController: UIViewController {
             logoImageView.widthAnchor.constraint(equalToConstant: Constants.logoImageWidth),
             logoImageView.heightAnchor.constraint(equalToConstant: Constants.logoImageWidth),
             
-            settingsView.topAnchor.constraint(equalTo: logoStackView.bottomAnchor, constant: 64),
+            settingsView.topAnchor.constraint(equalTo: logoStackView.bottomAnchor, constant: 32),
             settingsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             settingsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            peopleStackView.topAnchor.constraint(equalTo: settingsView.topAnchor, constant: 32),
-            peopleStackView.leadingAnchor.constraint(equalTo: settingsView.leadingAnchor, constant: 16),
-            peopleStackView.trailingAnchor.constraint(equalTo: settingsView.trailingAnchor, constant: -16),
+            settingsStackView.topAnchor.constraint(equalTo: settingsView.topAnchor, constant: 32),
+            settingsStackView.leadingAnchor.constraint(equalTo: settingsView.leadingAnchor, constant: 16),
+            settingsStackView.trailingAnchor.constraint(equalTo: settingsView.trailingAnchor, constant: -16),
+            settingsStackView.bottomAnchor.constraint(equalTo: settingsView.bottomAnchor, constant: -32),
             
-            infectionsStackView.topAnchor.constraint(equalTo: peopleStackView.bottomAnchor, constant: 32),
-            infectionsStackView.leadingAnchor.constraint(equalTo: settingsView.leadingAnchor, constant: 16),
-            infectionsStackView.trailingAnchor.constraint(equalTo: settingsView.trailingAnchor, constant: -16),
-            
-            periodStackView.topAnchor.constraint(equalTo: infectionsStackView.bottomAnchor, constant: 32),
-            periodStackView.leadingAnchor.constraint(equalTo: settingsView.leadingAnchor, constant: 16),
-            periodStackView.trailingAnchor.constraint(equalTo: settingsView.trailingAnchor, constant: -16),
-            
-            settingsView.bottomAnchor.constraint(equalTo: periodStackView.bottomAnchor, constant: 32),
             startButton.heightAnchor.constraint(equalToConstant: 60),
             startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
+            startButton.topAnchor.constraint(equalTo: settingsView.bottomAnchor, constant: 32)
         ])
     }
+    
+    //MARK: - Binding
+    
+    private func bind(to viewModel: SettingsViewModelProtocol) {
+        let input = SettingsViewModelInput(peopleNumber: peopleNumber.eraseToAnyPublisher(),
+                                           infectionsNumber: infectionsNumber.eraseToAnyPublisher(),
+                                           infectionPeriod: infectionPeriod.eraseToAnyPublisher(),
+                                           startSimulation: startSimulation.eraseToAnyPublisher())
+        viewModel.setInput(input: input)
+    }
+    
+    //MARK: - Slider Changed
     
     @objc
     private func sliderChanged(sender: UISlider) {
         switch sender {
         case peopleStackView.slider:
             let step: Float = 10
-            let currentValue = Int(round(sender.value / step) * step)
-            peopleStackView.numberLabel.text = "\(currentValue)"
+            let value = Int(round(sender.value / step) * step)
+            peopleStackView.numberLabel.text = "\(value)"
+            peopleNumber.send(value)
         case infectionsStackView.slider:
-            infectionsStackView.numberLabel.text = "\(Int(sender.value))"
+            let value = (Int(sender.value))
+            infectionsStackView.numberLabel.text = "\(value)"
+            infectionsNumber.send(value)
         case periodStackView.slider:
-            periodStackView.numberLabel.text = "\(Int(sender.value))"
+            let value = (Int(sender.value))
+            periodStackView.numberLabel.text = "\(value)"
+            infectionPeriod.send(value)
         default: break
         }
     }
     
+    //MARK: - Start Button Pressed
+    
     @objc
     private func startButtonPressed() {
-        
+        startSimulation.send(())
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SettingsNavigator: AnyObject {
-    func moduleWantsToOpenSimilation(with settings: SettingsModel)
+    func openSimilation(with settings: SettingsModel)
 }

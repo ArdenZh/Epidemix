@@ -42,8 +42,7 @@ final class SettingStackView: UIStackView {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.value = 0
-//        slider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
-        slider.thumbTintColor = UIColor(named: "accentColor")
+        slider.thumbTintColor = UIColor(named: "red")
         return slider
     }()
     
@@ -61,16 +60,8 @@ final class SettingStackView: UIStackView {
         distribution = .equalSpacing
         spacing = 10
         translatesAutoresizingMaskIntoConstraints = false
-        
         addArrangedSubview(peopleTitleStackView)
         addArrangedSubview(slider)
         addArrangedSubview(descriptionLabel)
     }
-    
-//    @objc
-//    private func sliderChanged(sender: UISlider) {
-//        if sender == slider {
-//            numberLabel.text = "\(Int(sender.value))"
-//        }
-//    }
 }

@@ -8,7 +8,11 @@
 import UIKit
 
 final class SimulationAssembly {
-    func makeSumulationModule(with settings: SettingsModel) -> UIViewController {
-        return UIViewController()
+    
+    //Собираем модуль с симуляцией
+    func makeSumulationModule(with settings: SettingsModel, navigator: SimulationNavigator) -> UIViewController {
+        let viewModel = SimulationViewModel(settingsnModel: settings, navigator: navigator)
+        let simulationViewController = SimulationViewController(viewModel: viewModel)
+        return simulationViewController
     }
 }
